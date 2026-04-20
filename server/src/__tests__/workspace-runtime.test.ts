@@ -442,6 +442,7 @@ describe("realizeExecutionWorkspace", () => {
 
     expect(reused.created).toBe(false);
     await expect(fs.stat(redirectPath)).rejects.toThrow();
+    await expect(fs.stat(path.join(first.cwd, ".beads"))).rejects.toThrow();
   });
 
   it("rejects reusing an empty directory that only looks like a worktree because it sits inside the repo", async () => {

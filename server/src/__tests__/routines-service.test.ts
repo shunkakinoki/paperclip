@@ -33,7 +33,7 @@ const ROUTINES_HOOK_TIMEOUT_MS = 20_000;
 
 const routineTest = (
   name: Parameters<typeof it>[0],
-  fn: Parameters<typeof it>[1],
+  fn: NonNullable<Parameters<typeof it>[1]>,
   timeout = ROUTINES_TEST_TIMEOUT_MS,
 ) => it(name, fn, timeout);
 

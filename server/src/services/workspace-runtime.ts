@@ -943,6 +943,7 @@ async function ensureBeadsRedirectForWorktree(input: {
 
   if (!(await directoryExists(sourceBeadsDir))) {
     await fs.rm(redirectPath, { force: true });
+    await fs.rmdir(worktreeBeadsDir).catch(() => undefined);
     return;
   }
 
